@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Property With OnPropertyChange Method</Title>
+            <Author>Abdoulaye DONG</Author>
+            <Description>Create a property with a notification of changes</Description>
+            <Shortcut>propchang</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[
+                private $Type$ $PrivateField$;
+
+                public $Type$ $PublicField$
+                {
+                    get { return $PrivateField$; }
+                    set 
+                    {
+                         $PrivateField$ = value; OnPropertyChanged(nameof($PublicField$));
+                     }
+                }]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>Type</ID>
+                    <Default>int</Default>
+                    <ToolTip>The data type of property that we need observe.</ToolTip>
+                </Literal>
+                <Literal>
+                    <ID>PrivateField</ID>
+                    <Default>_propertyName</Default>
+                    <ToolTip>The name of the property that stock our public field.</ToolTip>
+                </Literal>
+                <Literal>
+                    <ID>PublicField</ID>
+                    <Default>Name</Default>
+                    <ToolTip>The property that we can access from another class.</ToolTip>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

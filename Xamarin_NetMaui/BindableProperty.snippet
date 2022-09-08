@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>Define a BindableProperty</Title>
+            <Author>Abdoulaye DONG</Author>
+            <Description>Code snippet for bindable property.</Description>
+            <Shortcut>propbp</Shortcut>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[
+                public $Type$ $PropertyName$
+                {
+                    get => ($Type$)GetValue($PropertyName$Property);
+                    set => SetValue($PropertyName$Property, value);
+                }
+
+                public static readonly BindableProperty $PropertyName$Property = 
+                    BindableProperty.Create(
+                        declaringType: typeof($ControleName$),
+                        propertyName: nameof($PropertyName$),
+                        returnType: typeof($Type$),
+                        defaultValue: $DefaultValue$,
+                        defaultBindingMode: BindingMode.OneWay);
+                ]]>
+            </Code>
+            <Declarations>
+                <Literal>
+                    <ID>Type</ID>
+                    <ToolTip>Choose the target type of the bindable property.</ToolTip>
+                    <Default>string</Default>
+                </Literal>
+                <Literal>
+                    <ID>PropertyName</ID>
+                    <ToolTip>Choose the name of the target property.</ToolTip>
+                    <Default>MyProperty</Default>
+                </Literal>
+                <Literal>
+                    <ID>ControleName</ID>
+                    <ToolTip>Choose the name of the controle that contain this property.</ToolTip>
+                    <Default>MyCustomControl</Default>
+                </Literal>
+                <Literal>
+                    <ID>DefaultValue</ID>
+                    <ToolTip>Choose the default value for the bindable property.</ToolTip>
+                    <Default>String.Empty</Default>
+                </Literal>
+            </Declarations>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>
